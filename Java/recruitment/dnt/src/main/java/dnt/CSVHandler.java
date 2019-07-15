@@ -7,8 +7,18 @@ import java.util.List;
 
 import com.opencsv.CSVWriter;
 
+/**
+ * Responsible for writing to file in CSV format
+ */
 public class CSVHandler {
     
+    /**
+     * writes all Record objects to specified output file
+     * 
+     * @param filePath - path of an output file
+     * @param records - list of Record objects to write
+     * @param separator - separator for CSV entries
+     */
     public void writeCSVFile(String filePath, List<Record> records, char separator) {
         
         try {

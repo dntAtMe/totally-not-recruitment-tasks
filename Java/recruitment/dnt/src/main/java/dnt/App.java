@@ -3,6 +3,9 @@ package dnt;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Main class, manages both component classes
+ */
 public class App {
 
     public static void main(String[] args) {

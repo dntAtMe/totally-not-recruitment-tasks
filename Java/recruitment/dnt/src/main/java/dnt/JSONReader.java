@@ -16,8 +16,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Responsible for reading from JSON-formatted file
+ */
 public class JSONReader {
     
+    /**
+     * Reads JSON file and extracts records 
+     * 
+     * @param filePath - path of readable JSON file
+     * @return list of read records
+     */
     public List<Record> parseFile(String filePath) {
         Gson gson = new Gson();
         List<Record> records = new ArrayList<Record>();
@@ -40,7 +49,11 @@ public class JSONReader {
         return records;
     }
     
-
+    /**
+     * maps JSON object to Record iff Timestamp value is proper (not before 2017-07-01).
+     * @param record - record to create as Record object
+     * @return Record object
+     */
     public Record createRecord(JsonObject record) {
         Timestamp comparisonTimestamp = Timestamp.valueOf("2017-07-01 00:00:00");
         Timestamp recordTimestamp = Timestamp.valueOf(record.get("kontakt_ts").getAsString());
@@ -55,6 +68,11 @@ public class JSONReader {
                     );
     }
 
+    /**
+     * Sorts a list by klient_id and kontakt_ts using Comparator interface
+     * @param list - records list to sort
+     * @return sorted list of records
+     */
     public List sort (List<Record> list){
         Comparator<Record> comparator = Comparator.comparing(Record::getKlient_id);
         comparator = comparator.thenComparing(Record::getKontakt_ts);

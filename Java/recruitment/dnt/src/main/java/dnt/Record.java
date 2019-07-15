@@ -2,6 +2,9 @@ package dnt;
 
 import java.sql.Timestamp;
 
+/**
+ * Holds all information of a record from statuses.json file
+ */
 public class Record {
     private static final String formatted = "kontakt_id: %d\nklient_id: %d\npracownik_id: %d\nstatus: %s\ntimestamp: %s\n";
     private int kontakt_id;
